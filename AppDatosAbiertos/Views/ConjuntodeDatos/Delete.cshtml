@@ -1,0 +1,49 @@
+﻿@model AppDatosAbiertos.ConjuntodeDato
+
+@{
+    ViewBag.Title = "Delete";
+}
+<Center>
+
+    <h2>Borrar</h2>
+</Center>
+<h3>Estas seguro que quieres borra esto?</h3>
+<div>
+    <h4>Conjunto de Datos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar al listado", "Index")
+        </div>
+    }
+</div>

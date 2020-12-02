@@ -1,0 +1,75 @@
+﻿@model AppDatosAbiertos.RecursoPrestServicios
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<Center>
+    <h2>Borrar</h2>
+</Center>
+
+<h3>esta seguro que quiere borrar esto?</h3>
+<div>
+    <h4>Prestación del servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcuerdoPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcuerdoPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NuevosUsuarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NuevosUsuarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reconexiones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reconexiones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mes.NombreMes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes.NombreMes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar al listado", "Index")
+        </div>
+    }
+</div>

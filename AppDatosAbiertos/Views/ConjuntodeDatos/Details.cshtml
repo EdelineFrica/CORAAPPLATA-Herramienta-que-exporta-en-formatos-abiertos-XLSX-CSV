@@ -1,0 +1,43 @@
+﻿@model AppDatosAbiertos.ConjuntodeDato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<Center>
+    <h2>Detalles</h2>
+</Center>
+<div>
+    <h4>Conjunto de Datos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Regresar al listado", "Index")
+</p>

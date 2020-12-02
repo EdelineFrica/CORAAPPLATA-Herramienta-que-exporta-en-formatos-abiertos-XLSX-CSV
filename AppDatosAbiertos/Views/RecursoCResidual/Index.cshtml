@@ -1,0 +1,124 @@
+﻿@model IEnumerable<AppDatosAbiertos.RecursoCResidual>
+
+@{
+    ViewBag.Title = "Index";
+}
+<center>
+    <h2>Cloro residual</h2>
+</center>
+<p>
+    <a class="btn btn-primary" style="margin-bottom:10px" href="/RecursoCResidual/Create">
+        <span class='glyphicon glyphicon-file'></span>
+    </a>
+</p>
+
+
+<p>
+    <a class="btn btn-default" style="margin-bottom:10px" href="/RecursoCResidual/ExportarCSV">
+        Exportar a CSV
+        <span class='glyphicon glyphicon-export'></span>
+    </a>
+</p>
+
+
+<p>
+    <a class="btn btn-default" style="margin-bottom:10px" href="/RecursoCResidual/ExportarAxlsx">
+        Exportar a XLSX
+        <span class='glyphicon glyphicon-export'></span>
+    </a>
+</p>
+
+
+
+<table class="table-bordered">
+    <tr>
+        <th>
+            Nombre del conjunto
+        </th>
+        <th>
+            Año
+        </th>
+        <th>
+            Mes
+        </th>
+        <th>
+            Puerto Plata
+        </th>
+        <th>
+            Sosua
+        </th>
+        <th>
+            Montellano
+        </th>
+        <th>
+            La Isabela
+        </th>
+        <th>
+            Altamira
+        </th>
+        <th>
+            Luperon
+        </th>
+        <th>
+            Los Hidalgos
+        </th>
+        <th>
+            Guananico
+        </th>
+        <th>
+            Imbert
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConjuntodeDato.NombreConjunto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Anio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mes.NombreMes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcPuertoPlata)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcSosua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcMontellano)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcLaIsabela)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcAltamira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcLuperon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcLosHidalgos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcGuananico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcImbert)
+        </td>
+        <td>
+
+            @Html.Raw("<a data-modal='' href='/RecursoCResidual/Edit/" + item.IdRecursoCResidual + "' id='" + item.IdRecursoCResidual + "'title='Edit'> <span class='glyphicon glyphicon-edit'></span> </a>")
+            @Html.Raw("<a data-modal='' href='/RecursoCResidual/Details/" + item.IdRecursoCResidual + "' id='" + item.IdRecursoCResidual + "'title='Details'> <span class='glyphicon glyphicon-th-list'></span> </a>")
+            @Html.Raw("<a data-modal='' href='/RecursoCResidual/Delete/" + item.IdRecursoCResidual + "' id='" + item.IdRecursoCResidual + "'title='Delete'> <span class='glyphicon glyphicon-trash'></span> </a>")
+        </td>
+    </tr>
+    }
+
+</table>

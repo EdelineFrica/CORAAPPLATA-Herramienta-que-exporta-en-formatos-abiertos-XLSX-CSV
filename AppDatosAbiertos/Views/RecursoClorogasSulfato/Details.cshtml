@@ -1,0 +1,59 @@
+﻿@model AppDatosAbiertos.RecursoClorogasSulfato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<Center>
+    <h2>Detalles</h2>
+</Center>
+<div>
+    <h4>Recurso Clorogas y Sulfato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCloroGas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCloroGas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSulfato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSulfato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mes.NombreMes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes.NombreMes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Regresar al listado", "Index")
+</p>

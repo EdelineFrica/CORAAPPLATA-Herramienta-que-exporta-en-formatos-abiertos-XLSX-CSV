@@ -1,0 +1,91 @@
+﻿@model IEnumerable<AppDatosAbiertos.RecursoPrestServicios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+    <h2>Prestación del servicio</h2>
+</center>
+
+
+<p>
+    <a class="btn btn-primary" style="margin-bottom:10px" href="/RecursoPrestServicios/Create">
+        <span class='glyphicon glyphicon-file'></span>
+    </a>
+</p>
+
+
+<p>
+    <a class="btn btn-default" style="margin-bottom:10px" href="/RecursoPrestServicios/ExportarCSV">
+        Exportar a CSV
+        <span class='glyphicon glyphicon-export'></span>
+    </a>
+</p>
+
+<p>
+    <a class="btn btn-default" style="margin-bottom:10px" href="/RecursoPrestServicios/ExportarAxlsx">
+        Exportar a XLSX
+        <span class='glyphicon glyphicon-export'></span>
+    </a>
+</p>
+
+
+
+<table class="table-bordered">
+    <tr>
+        <th>
+            Nombre del conjunto
+        </th>
+        <th>
+            Año
+        </th>
+        <th>
+            Mes
+        </th>
+        <th>
+            Acuerdos de pago
+        </th>
+        <th>
+            Nuevos usuarios
+        </th>
+        <th>
+            Reconeciones
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConjuntodeDato.NombreConjunto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes.NombreMes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcuerdoPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NuevosUsuarios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reconexiones)
+            </td>
+
+            <td>
+
+                @Html.Raw("<a data-modal='' href='/RecursoPrestServicios/Edit/" + item.IdRecursoPServicios + "' id='" + item.IdRecursoPServicios + "'title='Edit'> <span class='glyphicon glyphicon-edit'></span> </a>")
+                @Html.Raw("<a data-modal='' href='/RecursoPrestServicios/Details/" + item.IdRecursoPServicios + "' id='" + item.IdRecursoPServicios + "'title='Details'> <span class='glyphicon glyphicon-th-list'></span> </a>")
+                @Html.Raw("<a data-modal='' href='/RecursoPrestServicios/Delete/" + item.IdRecursoPServicios + "' id='" + item.IdRecursoPServicios + "'title='Delete'> <span class='glyphicon glyphicon-trash'></span> </a>")
+
+
+            </td>
+        </tr>
+    }
+
+</table>

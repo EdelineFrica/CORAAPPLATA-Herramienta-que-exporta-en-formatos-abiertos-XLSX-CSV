@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+<div class="row">
+    <div class="col-sm-3 col-md-3">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span class="glyphicon glyphicon-file">
+                            </span>Registrar un conjunto de datos
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-file"><strong>@Html.ActionLink("Nuevo conjunto de datos", "Index", "ConjuntodeDatos")</strong></span>
+                                </td>
+                            </tr>
+
+                            @*<tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-copy"><strong>@Html.ActionLink("MEDICAMENTOS VENCIDOS", "MedicamentosVencidos", "Medicamento")</strong></span>
+                                    </td>
+                                </tr>*@
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                            <span class="glyphicon glyphicon-list">
+                            </span>Registrar un recurso
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-tint"><strong>@Html.ActionLink("Produccion de agua", "Index", "RecursoProdAgua")</strong></span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-copy"><strong>@Html.ActionLink("Prestacion del servicio", "Index", "RecursoPrestServicios")</strong></span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-copy"><strong>@Html.ActionLink("Consumo cloro gas y sulfato", "Index", "RecursoClorogasSulfato")</strong></span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-copy"><strong style="color:black">@Html.ActionLink("Cloro residual", "Index", "RecursoCResidual")</strong></span>
+                                </td>
+
+                            </tr>
+
+                           
+
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            <span class="glyphicon glyphicon-pencil">
+                            </span>Registrar mes
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span class="glyphicon glyphicon-pencil"><strong style="color:black">@Html.ActionLink("Registrar mes", "Index", "Mes")</strong></span>
+                                </td>
+
+                            </tr>
+                            
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9">
+        <div class="well">
+
+
+            <center>
+                <img src="~/Content/Imagenes/Datos Abiertos Grande Foto General2.jpg" width="628" height="217" />
+            </center>
+        </div>
+    </div>
+</div>
+</div>

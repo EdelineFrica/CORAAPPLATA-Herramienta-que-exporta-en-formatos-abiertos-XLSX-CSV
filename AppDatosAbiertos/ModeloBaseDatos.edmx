@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatosAbiertosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ConjuntodeDato">
+          <Key>
+            <PropertyRef Name="IdConjunto" />
+          </Key>
+          <Property Name="IdConjunto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreConjunto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DescripcionConjunto" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mes">
+          <Key>
+            <PropertyRef Name="IdMes" />
+          </Key>
+          <Property Name="IdMes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecursoClorogasSulfato">
+          <Key>
+            <PropertyRef Name="IdRecursoCGasSulfato" />
+          </Key>
+          <Property Name="IdRecursoCGasSulfato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConjunto" Type="int" Nullable="false" />
+          <Property Name="Anio" Type="int" Nullable="false" />
+          <Property Name="IdMes" Type="int" Nullable="false" />
+          <Property Name="CCloroGas" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CSulfato" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecursoCResidual">
+          <Key>
+            <PropertyRef Name="IdRecursoCResidual" />
+          </Key>
+          <Property Name="IdRecursoCResidual" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConjunto" Type="int" Nullable="false" />
+          <Property Name="Anio" Type="int" Nullable="false" />
+          <Property Name="IdMes" Type="int" Nullable="false" />
+          <Property Name="AcPuertoPlata" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcSosua" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcMontellano" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcLaIsabela" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcAltamira" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcLuperon" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcLosHidalgos" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcGuananico" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcImbert" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecursoNomina">
+          <Key>
+            <PropertyRef Name="IdRecNomina" />
+          </Key>
+          <Property Name="IdRecNomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConjunto" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="NombreApellido" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Cargo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Salario" Type="int" Nullable="false" />
+          <Property Name="IdMes" Type="int" Nullable="false" />
+          <Property Name="anio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecursoPrestServicios">
+          <Key>
+            <PropertyRef Name="IdRecursoPServicios" />
+          </Key>
+          <Property Name="IdRecursoPServicios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConjunto" Type="int" Nullable="false" />
+          <Property Name="Anio" Type="int" Nullable="false" />
+          <Property Name="IdMes" Type="int" Nullable="false" />
+          <Property Name="AcuerdoPago" Type="int" Nullable="false" />
+          <Property Name="NuevosUsuarios" Type="int" Nullable="false" />
+          <Property Name="Reconexiones" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecursoProdAgua">
+          <Key>
+            <PropertyRef Name="IdRecursoPAgua" />
+          </Key>
+          <Property Name="IdRecursoPAgua" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdConjunto" Type="int" Nullable="false" />
+          <Property Name="Anio" Type="int" Nullable="false" />
+          <Property Name="IdMes" Type="int" Nullable="false" />
+          <Property Name="GalonesxMes" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Mts3Mes" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_RecursoClorogasSulfato_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoClorogasSulfato" Type="Self.RecursoClorogasSulfato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoClorogasSulfato">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoClorogasSulfato_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoClorogasSulfato" Type="Self.RecursoClorogasSulfato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoClorogasSulfato">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoCResidual_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoCResidual" Type="Self.RecursoCResidual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoCResidual">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoCResidual_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoCResidual" Type="Self.RecursoCResidual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoCResidual">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoNomina_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoNomina" Type="Self.RecursoNomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoNomina">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoNomina_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoNomina" Type="Self.RecursoNomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoNomina">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoPrestServicios_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoPrestServicios" Type="Self.RecursoPrestServicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoPrestServicios">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoPrestServicios_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoPrestServicios" Type="Self.RecursoPrestServicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoPrestServicios">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoProdAgua_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoProdAgua" Type="Self.RecursoProdAgua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoProdAgua">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoProdAgua_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoProdAgua" Type="Self.RecursoProdAgua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoProdAgua">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatosAbiertosModelStoreContainer">
+          <EntitySet Name="ConjuntodeDato" EntityType="Self.ConjuntodeDato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mes" EntityType="Self.Mes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecursoClorogasSulfato" EntityType="Self.RecursoClorogasSulfato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecursoCResidual" EntityType="Self.RecursoCResidual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecursoNomina" EntityType="Self.RecursoNomina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecursoPrestServicios" EntityType="Self.RecursoPrestServicios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecursoProdAgua" EntityType="Self.RecursoProdAgua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_RecursoClorogasSulfato_ConjuntodeDato" Association="Self.FK_RecursoClorogasSulfato_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoClorogasSulfato" EntitySet="RecursoClorogasSulfato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoClorogasSulfato_Mes" Association="Self.FK_RecursoClorogasSulfato_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoClorogasSulfato" EntitySet="RecursoClorogasSulfato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoCResidual_ConjuntodeDato" Association="Self.FK_RecursoCResidual_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoCResidual" EntitySet="RecursoCResidual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoCResidual_Mes" Association="Self.FK_RecursoCResidual_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoCResidual" EntitySet="RecursoCResidual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoNomina_ConjuntodeDato" Association="Self.FK_RecursoNomina_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoNomina" EntitySet="RecursoNomina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoNomina_Mes" Association="Self.FK_RecursoNomina_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoNomina" EntitySet="RecursoNomina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoPrestServicios_ConjuntodeDato" Association="Self.FK_RecursoPrestServicios_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoPrestServicios" EntitySet="RecursoPrestServicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoPrestServicios_Mes" Association="Self.FK_RecursoPrestServicios_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoPrestServicios" EntitySet="RecursoPrestServicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoProdAgua_ConjuntodeDato" Association="Self.FK_RecursoProdAgua_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoProdAgua" EntitySet="RecursoProdAgua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoProdAgua_Mes" Association="Self.FK_RecursoProdAgua_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoProdAgua" EntitySet="RecursoProdAgua" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatosAbiertosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ConjuntodeDato">
+          <Key>
+            <PropertyRef Name="IdConjunto" />
+          </Key>
+          <Property Name="IdConjunto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreConjunto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DescripcionConjunto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RecursoClorogasSulfato" Relationship="Self.FK_RecursoClorogasSulfato_ConjuntodeDato" FromRole="ConjuntodeDato" ToRole="RecursoClorogasSulfato" />
+          <NavigationProperty Name="RecursoCResidual" Relationship="Self.FK_RecursoCResidual_ConjuntodeDato" FromRole="ConjuntodeDato" ToRole="RecursoCResidual" />
+          <NavigationProperty Name="RecursoNomina" Relationship="Self.FK_RecursoNomina_ConjuntodeDato" FromRole="ConjuntodeDato" ToRole="RecursoNomina" />
+          <NavigationProperty Name="RecursoPrestServicios" Relationship="Self.FK_RecursoPrestServicios_ConjuntodeDato" FromRole="ConjuntodeDato" ToRole="RecursoPrestServicios" />
+          <NavigationProperty Name="RecursoProdAgua" Relationship="Self.FK_RecursoProdAgua_ConjuntodeDato" FromRole="ConjuntodeDato" ToRole="RecursoProdAgua" />
+        </EntityType>
+        <EntityType Name="Mes">
+          <Key>
+            <PropertyRef Name="IdMes" />
+          </Key>
+          <Property Name="IdMes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreMes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RecursoClorogasSulfato" Relationship="Self.FK_RecursoClorogasSulfato_Mes" FromRole="Mes" ToRole="RecursoClorogasSulfato" />
+          <NavigationProperty Name="RecursoCResidual" Relationship="Self.FK_RecursoCResidual_Mes" FromRole="Mes" ToRole="RecursoCResidual" />
+          <NavigationProperty Name="RecursoNomina" Relationship="Self.FK_RecursoNomina_Mes" FromRole="Mes" ToRole="RecursoNomina" />
+          <NavigationProperty Name="RecursoPrestServicios" Relationship="Self.FK_RecursoPrestServicios_Mes" FromRole="Mes" ToRole="RecursoPrestServicios" />
+          <NavigationProperty Name="RecursoProdAgua" Relationship="Self.FK_RecursoProdAgua_Mes" FromRole="Mes" ToRole="RecursoProdAgua" />
+        </EntityType>
+        <EntityType Name="RecursoClorogasSulfato">
+          <Key>
+            <PropertyRef Name="IdRecursoCGasSulfato" />
+          </Key>
+          <Property Name="IdRecursoCGasSulfato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConjunto" Type="Int32" Nullable="false" />
+          <Property Name="Anio" Type="Int32" Nullable="false" />
+          <Property Name="IdMes" Type="Int32" Nullable="false" />
+          <Property Name="CCloroGas" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CSulfato" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ConjuntodeDato" Relationship="Self.FK_RecursoClorogasSulfato_ConjuntodeDato" FromRole="RecursoClorogasSulfato" ToRole="ConjuntodeDato" />
+          <NavigationProperty Name="Mes" Relationship="Self.FK_RecursoClorogasSulfato_Mes" FromRole="RecursoClorogasSulfato" ToRole="Mes" />
+        </EntityType>
+        <EntityType Name="RecursoCResidual">
+          <Key>
+            <PropertyRef Name="IdRecursoCResidual" />
+          </Key>
+          <Property Name="IdRecursoCResidual" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConjunto" Type="Int32" Nullable="false" />
+          <Property Name="Anio" Type="Int32" Nullable="false" />
+          <Property Name="IdMes" Type="Int32" Nullable="false" />
+          <Property Name="AcPuertoPlata" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcSosua" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcMontellano" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcLaIsabela" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcAltamira" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcLuperon" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcLosHidalgos" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcGuananico" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AcImbert" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ConjuntodeDato" Relationship="Self.FK_RecursoCResidual_ConjuntodeDato" FromRole="RecursoCResidual" ToRole="ConjuntodeDato" />
+          <NavigationProperty Name="Mes" Relationship="Self.FK_RecursoCResidual_Mes" FromRole="RecursoCResidual" ToRole="Mes" />
+        </EntityType>
+        <EntityType Name="RecursoNomina">
+          <Key>
+            <PropertyRef Name="IdRecNomina" />
+          </Key>
+          <Property Name="IdRecNomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConjunto" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="NombreApellido" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salario" Type="Int32" Nullable="false" />
+          <Property Name="IdMes" Type="Int32" Nullable="false" />
+          <Property Name="anio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConjuntodeDato" Relationship="Self.FK_RecursoNomina_ConjuntodeDato" FromRole="RecursoNomina" ToRole="ConjuntodeDato" />
+          <NavigationProperty Name="Mes" Relationship="Self.FK_RecursoNomina_Mes" FromRole="RecursoNomina" ToRole="Mes" />
+        </EntityType>
+        <EntityType Name="RecursoPrestServicios">
+          <Key>
+            <PropertyRef Name="IdRecursoPServicios" />
+          </Key>
+          <Property Name="IdRecursoPServicios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConjunto" Type="Int32" Nullable="false" />
+          <Property Name="Anio" Type="Int32" Nullable="false" />
+          <Property Name="IdMes" Type="Int32" Nullable="false" />
+          <Property Name="AcuerdoPago" Type="Int32" Nullable="false" />
+          <Property Name="NuevosUsuarios" Type="Int32" Nullable="false" />
+          <Property Name="Reconexiones" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConjuntodeDato" Relationship="Self.FK_RecursoPrestServicios_ConjuntodeDato" FromRole="RecursoPrestServicios" ToRole="ConjuntodeDato" />
+          <NavigationProperty Name="Mes" Relationship="Self.FK_RecursoPrestServicios_Mes" FromRole="RecursoPrestServicios" ToRole="Mes" />
+        </EntityType>
+        <EntityType Name="RecursoProdAgua">
+          <Key>
+            <PropertyRef Name="IdRecursoPAgua" />
+          </Key>
+          <Property Name="IdRecursoPAgua" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdConjunto" Type="Int32" Nullable="false" />
+          <Property Name="Anio" Type="Int32" Nullable="false" />
+          <Property Name="IdMes" Type="Int32" Nullable="false" />
+          <Property Name="GalonesxMes" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Mts3Mes" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ConjuntodeDato" Relationship="Self.FK_RecursoProdAgua_ConjuntodeDato" FromRole="RecursoProdAgua" ToRole="ConjuntodeDato" />
+          <NavigationProperty Name="Mes" Relationship="Self.FK_RecursoProdAgua_Mes" FromRole="RecursoProdAgua" ToRole="Mes" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_RecursoClorogasSulfato_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoClorogasSulfato" Type="Self.RecursoClorogasSulfato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoClorogasSulfato">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoCResidual_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoCResidual" Type="Self.RecursoCResidual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoCResidual">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoNomina_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoNomina" Type="Self.RecursoNomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoNomina">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoPrestServicios_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoPrestServicios" Type="Self.RecursoPrestServicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoPrestServicios">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoProdAgua_ConjuntodeDato">
+          <End Role="ConjuntodeDato" Type="Self.ConjuntodeDato" Multiplicity="1" />
+          <End Role="RecursoProdAgua" Type="Self.RecursoProdAgua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConjuntodeDato">
+              <PropertyRef Name="IdConjunto" />
+            </Principal>
+            <Dependent Role="RecursoProdAgua">
+              <PropertyRef Name="IdConjunto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoClorogasSulfato_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoClorogasSulfato" Type="Self.RecursoClorogasSulfato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoClorogasSulfato">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoCResidual_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoCResidual" Type="Self.RecursoCResidual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoCResidual">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoNomina_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoNomina" Type="Self.RecursoNomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoNomina">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoPrestServicios_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoPrestServicios" Type="Self.RecursoPrestServicios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoPrestServicios">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecursoProdAgua_Mes">
+          <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+          <End Role="RecursoProdAgua" Type="Self.RecursoProdAgua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mes">
+              <PropertyRef Name="IdMes" />
+            </Principal>
+            <Dependent Role="RecursoProdAgua">
+              <PropertyRef Name="IdMes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatosAbiertosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConjuntodeDato" EntityType="Self.ConjuntodeDato" />
+          <EntitySet Name="Mes" EntityType="Self.Mes" />
+          <EntitySet Name="RecursoClorogasSulfato" EntityType="Self.RecursoClorogasSulfato" />
+          <EntitySet Name="RecursoCResidual" EntityType="Self.RecursoCResidual" />
+          <EntitySet Name="RecursoNomina" EntityType="Self.RecursoNomina" />
+          <EntitySet Name="RecursoPrestServicios" EntityType="Self.RecursoPrestServicios" />
+          <EntitySet Name="RecursoProdAgua" EntityType="Self.RecursoProdAgua" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_RecursoClorogasSulfato_ConjuntodeDato" Association="Self.FK_RecursoClorogasSulfato_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoClorogasSulfato" EntitySet="RecursoClorogasSulfato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoCResidual_ConjuntodeDato" Association="Self.FK_RecursoCResidual_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoCResidual" EntitySet="RecursoCResidual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoNomina_ConjuntodeDato" Association="Self.FK_RecursoNomina_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoNomina" EntitySet="RecursoNomina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoPrestServicios_ConjuntodeDato" Association="Self.FK_RecursoPrestServicios_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoPrestServicios" EntitySet="RecursoPrestServicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoProdAgua_ConjuntodeDato" Association="Self.FK_RecursoProdAgua_ConjuntodeDato">
+            <End Role="ConjuntodeDato" EntitySet="ConjuntodeDato" />
+            <End Role="RecursoProdAgua" EntitySet="RecursoProdAgua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoClorogasSulfato_Mes" Association="Self.FK_RecursoClorogasSulfato_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoClorogasSulfato" EntitySet="RecursoClorogasSulfato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoCResidual_Mes" Association="Self.FK_RecursoCResidual_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoCResidual" EntitySet="RecursoCResidual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoNomina_Mes" Association="Self.FK_RecursoNomina_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoNomina" EntitySet="RecursoNomina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoPrestServicios_Mes" Association="Self.FK_RecursoPrestServicios_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoPrestServicios" EntitySet="RecursoPrestServicios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecursoProdAgua_Mes" Association="Self.FK_RecursoProdAgua_Mes">
+            <End Role="Mes" EntitySet="Mes" />
+            <End Role="RecursoProdAgua" EntitySet="RecursoProdAgua" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatosAbiertosModelStoreContainer" CdmEntityContainer="DatosAbiertosEntities">
+          <EntitySetMapping Name="ConjuntodeDato">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.ConjuntodeDato">
+              <MappingFragment StoreEntitySet="ConjuntodeDato">
+                <ScalarProperty Name="IdConjunto" ColumnName="IdConjunto" />
+                <ScalarProperty Name="NombreConjunto" ColumnName="NombreConjunto" />
+                <ScalarProperty Name="DescripcionConjunto" ColumnName="DescripcionConjunto" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mes">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.Mes">
+              <MappingFragment StoreEntitySet="Mes">
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecursoClorogasSulfato">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.RecursoClorogasSulfato">
+              <MappingFragment StoreEntitySet="RecursoClorogasSulfato">
+                <ScalarProperty Name="IdRecursoCGasSulfato" ColumnName="IdRecursoCGasSulfato" />
+                <ScalarProperty Name="IdConjunto" ColumnName="IdConjunto" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="CCloroGas" ColumnName="CCloroGas" />
+                <ScalarProperty Name="CSulfato" ColumnName="CSulfato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecursoCResidual">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.RecursoCResidual">
+              <MappingFragment StoreEntitySet="RecursoCResidual">
+                <ScalarProperty Name="IdRecursoCResidual" ColumnName="IdRecursoCResidual" />
+                <ScalarProperty Name="IdConjunto" ColumnName="IdConjunto" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="AcPuertoPlata" ColumnName="AcPuertoPlata" />
+                <ScalarProperty Name="AcSosua" ColumnName="AcSosua" />
+                <ScalarProperty Name="AcMontellano" ColumnName="AcMontellano" />
+                <ScalarProperty Name="AcLaIsabela" ColumnName="AcLaIsabela" />
+                <ScalarProperty Name="AcAltamira" ColumnName="AcAltamira" />
+                <ScalarProperty Name="AcLuperon" ColumnName="AcLuperon" />
+                <ScalarProperty Name="AcLosHidalgos" ColumnName="AcLosHidalgos" />
+                <ScalarProperty Name="AcGuananico" ColumnName="AcGuananico" />
+                <ScalarProperty Name="AcImbert" ColumnName="AcImbert" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecursoNomina">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.RecursoNomina">
+              <MappingFragment StoreEntitySet="RecursoNomina">
+                <ScalarProperty Name="IdRecNomina" ColumnName="IdRecNomina" />
+                <ScalarProperty Name="IdConjunto" ColumnName="IdConjunto" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NombreApellido" ColumnName="NombreApellido" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Salario" ColumnName="Salario" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecursoPrestServicios">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.RecursoPrestServicios">
+              <MappingFragment StoreEntitySet="RecursoPrestServicios">
+                <ScalarProperty Name="IdRecursoPServicios" ColumnName="IdRecursoPServicios" />
+                <ScalarProperty Name="IdConjunto" ColumnName="IdConjunto" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="AcuerdoPago" ColumnName="AcuerdoPago" />
+                <ScalarProperty Name="NuevosUsuarios" ColumnName="NuevosUsuarios" />
+                <ScalarProperty Name="Reconexiones" ColumnName="Reconexiones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecursoProdAgua">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.RecursoProdAgua">
+              <MappingFragment StoreEntitySet="RecursoProdAgua">
+                <ScalarProperty Name="IdRecursoPAgua" ColumnName="IdRecursoPAgua" />
+                <ScalarProperty Name="IdConjunto" ColumnName="IdConjunto" />
+                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="GalonesxMes" ColumnName="GalonesxMes" />
+                <ScalarProperty Name="Mts3Mes" ColumnName="Mts3Mes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DatosAbiertosModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

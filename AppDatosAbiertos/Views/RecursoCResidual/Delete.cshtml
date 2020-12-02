@@ -1,0 +1,121 @@
+﻿@model AppDatosAbiertos.RecursoCResidual
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<center>
+    <h2>Borrar</h2>
+</center>
+<h3>Estas seguro que quieres borrar esto?</h3>
+<div>
+    <h4>Cloro residual</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcPuertoPlata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcPuertoPlata)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcSosua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcSosua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcMontellano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcMontellano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcLaIsabela)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcLaIsabela)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcAltamira)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcAltamira)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcLuperon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcLuperon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcLosHidalgos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcLosHidalgos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcGuananico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcGuananico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AcImbert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcImbert)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mes.NombreMes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes.NombreMes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar al listado", "Index")
+        </div>
+    }
+</div>

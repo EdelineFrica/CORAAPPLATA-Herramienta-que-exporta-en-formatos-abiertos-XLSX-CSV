@@ -1,0 +1,27 @@
+﻿@model AppDatosAbiertos.Mes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<Center>
+    <h2>Detalles</h2>
+</Center>
+<div>
+    <h4>Mes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreMes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreMes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Regresar al listado", "Index")
+</p>

@@ -1,0 +1,59 @@
+﻿@model AppDatosAbiertos.RecursoProdAgua
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<Center>
+    <h2>Detalles</h2>
+</Center>
+<div>
+    <h4>Producción de agua</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Año
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            Galones por mes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GalonesxMes)
+        </dd>
+
+        <dt>
+            Metro cúbico por mes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mts3Mes)
+        </dd>
+
+        <dt>
+            Nombre del conjunto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dd>
+
+        <dt>
+            Mes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes.NombreMes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Regresar al listado", "Index")
+</p>

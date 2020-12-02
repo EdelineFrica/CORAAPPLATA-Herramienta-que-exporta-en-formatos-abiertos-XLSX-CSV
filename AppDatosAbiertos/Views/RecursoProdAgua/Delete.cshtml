@@ -1,0 +1,64 @@
+﻿@model AppDatosAbiertos.RecursoProdAgua
+
+@{
+    ViewBag.Title = "Delete";
+}
+<center>
+    <h2>Borrar el registro</h2>
+</center>
+<h3>Estas seguro que quieres borrar esto?</h3>
+<div>
+    <h4>Producción de agua</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Año
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            Galones por mes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GalonesxMes)
+        </dd>
+
+        <dt>
+            Metro cúbico por mes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mts3Mes)
+        </dd>
+
+        <dt>
+            Nombre del conjunto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dd>
+
+        <dt>
+            Mes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes.NombreMes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar al listado", "Index")
+        </div>
+    }
+</div>

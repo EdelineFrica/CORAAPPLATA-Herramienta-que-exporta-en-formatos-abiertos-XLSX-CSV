@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AppDatosAbiertos.ConjuntodeDato>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+    <h2>
+        Conjunto de datos
+    </h2>
+</center>
+<p>
+    <a class="btn btn-primary" style="margin-bottom:10px" href="/ConjuntodeDatos/Create">
+        <span class='glyphicon glyphicon-file'></span>
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreConjunto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripcionConjunto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreConjunto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcionConjunto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.Raw("<a data-modal='' href='/ConjuntodeDatos/Edit/" + item.IdConjunto + "' id='" + item.IdConjunto + "'title='Edit'> <span class='glyphicon glyphicon-edit'></span> </a>")
+            @Html.Raw("<a data-modal='' href='/ConjuntodeDatos/Details/" + item.IdConjunto + "' id='" + item.IdConjunto + "'title='Details'> <span class='glyphicon glyphicon-th-list'></span> </a>")
+            @Html.Raw("<a data-modal='' href='/ConjuntodeDatos/Delete/" + item.IdConjunto + "' id='" + item.IdConjunto + "'title='Delete'> <span class='glyphicon glyphicon-trash'></span> </a>")
+        </td>
+    </tr>
+    }
+
+</table>

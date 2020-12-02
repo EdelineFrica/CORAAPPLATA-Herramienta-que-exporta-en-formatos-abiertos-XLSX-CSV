@@ -1,0 +1,65 @@
+﻿@model AppDatosAbiertos.RecursoClorogasSulfato
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<center>
+    <h2>Borrar</h2>
+</center>
+<h3>Esta seguro que quiere borrar esto?</h3>
+<div>
+    <h4>Recurso Clorogas y Sulfato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCloroGas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCloroGas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSulfato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSulfato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConjuntodeDato.NombreConjunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mes.NombreMes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes.NombreMes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar al listado", "Index")
+        </div>
+    }
+</div>

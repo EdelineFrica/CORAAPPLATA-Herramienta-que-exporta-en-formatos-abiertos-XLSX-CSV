@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f74762531ecc4c9ea8d90d12496a3026" Name="Diagram1">
+        <EntityTypeShape EntityType="DatosAbiertosModel.ConjuntodeDato" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatosAbiertosModel.Mes" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatosAbiertosModel.RecursoClorogasSulfato" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatosAbiertosModel.RecursoCResidual" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatosAbiertosModel.RecursoNomina" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatosAbiertosModel.RecursoPrestServicios" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatosAbiertosModel.RecursoProdAgua" Width="1.5" PointX="6" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatosAbiertosModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoClorogasSulfato_ConjuntodeDato" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoCResidual_ConjuntodeDato" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoNomina_ConjuntodeDato" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoPrestServicios_ConjuntodeDato" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoProdAgua_ConjuntodeDato" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoClorogasSulfato_Mes" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoCResidual_Mes" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoNomina_Mes" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoPrestServicios_Mes" ManuallyRouted="false" />
+        <AssociationConnector Association="DatosAbiertosModel.FK_RecursoProdAgua_Mes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
